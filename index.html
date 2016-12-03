@@ -236,13 +236,13 @@
 
         var map = L.map('map', options);
 
-//        var tiles = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-//        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-//        subdomains: 'abcd',
-//        maxZoom: 19
-//    });
-//
-//    map.addLayer(tiles);
+        var tiles = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+    });
+
+    map.addLayer(tiles);
 
         var dataLayer, 
             attribute = "TOTAL", 
@@ -260,13 +260,12 @@
                     }
                 }
 
-            }).addTo(map); // add the Leaflet GeoJson layer to the map
-            //call the function to initially draw the legend
+            }).addTo(map); 
+            
             drawLegend();
-            //first calculated the classification break ranges, looped through all the layers, and assigned them a color value //based upon the global variable attribute
+            
             drawMap();
-            //call the finction to initially draw the info panel
-          //  drawInfo();
+            
             buildUI();
         });
 
@@ -318,7 +317,9 @@
         function buildUI() {
             
             $('select[id="crashes"]').change(function() {
-                attribute = $(this).val(); //return the attribute value of 
+                
+                attribute = $(this).val(); 
+                
                 drawMap();
             });
         }
