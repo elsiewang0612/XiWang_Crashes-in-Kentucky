@@ -71,7 +71,7 @@
             margin: 8px 0 4px;
             padding: 0 25px 0 15px;
             color: #3d3d3d;
-            text-align: left;
+            text-align: center;
             font-size: 0.8em;
         }
         
@@ -246,7 +246,6 @@
         var dataLayer, 
             attribute = "TOTAL", 
             norm = "POP"; 
-
        
         $.getJSON("ky_crashes_final.geojson", function(data) {
             dataLayer = L.geoJson(data, {
@@ -287,9 +286,12 @@
                     updateInfo(this); 
                     dataLayer.on('mouseover', function() {
                         $(".info").show();
+                        
+                        
 
                     });
                     layer.setStyle({ 
+                        Color: '#3d3d3d',
                         fillColor: '#737373'
                     });
                 });
@@ -298,6 +300,7 @@
                     updateInfo(this);
                     dataLayer.on('mouseout', function() {
                         $(".info").hide();
+                        
                         
                     });
                     layer.setStyle({
